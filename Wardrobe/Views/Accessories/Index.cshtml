@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Wardrobe.Models.Accessory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.accessoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.accessoryPhoto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.accessoryColor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.accessorySeason)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.accessoryOccasion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.accessoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.accessoryPhoto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.accessoryColor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.accessorySeason)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.accessoryOccasion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.accessoryID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.accessoryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.accessoryID })
+        </td>
+    </tr>
+}
+
+</table>

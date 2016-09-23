@@ -1,0 +1,58 @@
+﻿@model Wardrobe.Models.Top
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Top</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.topName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.topName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.topPhoto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.topPhoto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.topColor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.topColor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.topSeason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.topSeason)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.topOccasion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.topOccasion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.topID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
