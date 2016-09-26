@@ -12,19 +12,19 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.shoeName)
+            @Html.DisplayNameFor(model => model.Occasion.OccasionName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.shoePhoto)
+            @Html.DisplayNameFor(model => model.Season.seasonName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.shoeColor)
+            @Html.DisplayNameFor(model => model.ShoeName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.shoeSeason)
+            @Html.DisplayNameFor(model => model.ShoePhoto)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.shoeOccasion)
+            @Html.DisplayNameFor(model => model.ShoeColor)
         </th>
         <th></th>
     </tr>
@@ -32,24 +32,24 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.shoeName)
+            @Html.DisplayFor(modelItem => item.Occasion.OccasionName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.shoePhoto)
+            @Html.DisplayFor(modelItem => item.Season.seasonName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.shoeColor)
+            @Html.DisplayFor(modelItem => item.ShoeName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.shoeSeason)
+            @Html.DisplayFor(modelItem => item.ShoePhoto)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.shoeOccasion)
+            @Html.DisplayFor(modelItem => item.ShoeColor)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.shoeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.shoeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.shoeID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ShoeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ShoeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ShoeID })
         </td>
     </tr>
 }

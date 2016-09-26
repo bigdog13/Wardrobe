@@ -54,3 +54,4 @@ c:\users\wecancodeit\documents\visual studio 2015\Projects\Wardrobe\Wardrobe\bin
 c:\users\wecancodeit\documents\visual studio 2015\Projects\Wardrobe\Wardrobe\bin\EntityFramework.SqlServer.dll
 c:\users\wecancodeit\documents\visual studio 2015\Projects\Wardrobe\Wardrobe\bin\EntityFramework.xml
 c:\users\wecancodeit\documents\visual studio 2015\Projects\Wardrobe\Wardrobe\bin\EntityFramework.SqlServer.xml
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\Wardrobe\Wardrobe\obj\Debug\Wardrobe.csprojResolveAssemblyReference.cache

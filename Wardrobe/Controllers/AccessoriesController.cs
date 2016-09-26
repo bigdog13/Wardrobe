@@ -17,7 +17,8 @@ namespace Wardrobe.Controllers
         // GET: Accessories
         public ActionResult Index()
         {
-            return View(db.Accessories.ToList());
+            var accessories = db.Accessories.Include(a => a.Occasion).Include(a => a.Season);
+            return View(accessories.ToList());
         }
 
         // GET: Accessories/Details/5
@@ -38,6 +39,8 @@ namespace Wardrobe.Controllers
         // GET: Accessories/Create
         public ActionResult Create()
         {
+            ViewBag.OccasionID = new SelectList(db.Occasions, "OccasionID", "OccasionName");
+            ViewBag.SeasonID = new SelectList(db.Seasons, "seasonID", "seasonName");
             return View();
         }
 
@@ -46,7 +49,7 @@ namespace Wardrobe.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "accessoryID,accessoryName,accessoryPhoto,accessoryColor,accessorySeason,accessoryOccasion")] Accessory accessory)
+        public ActionResult Create([Bind(Include = "AccessoryID,AccessoryName,AccessoryPhoto,AccessoryColor,SeasonID,OccasionID")] Accessory accessory)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +58,8 @@ namespace Wardrobe.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.OccasionID = new SelectList(db.Occasions, "OccasionID", "OccasionName", accessory.OccasionID);
+            ViewBag.SeasonID = new SelectList(db.Seasons, "seasonID", "seasonName", accessory.SeasonID);
             return View(accessory);
         }
 
@@ -70,6 +75,8 @@ namespace Wardrobe.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.OccasionID = new SelectList(db.Occasions, "OccasionID", "OccasionName", accessory.OccasionID);
+            ViewBag.SeasonID = new SelectList(db.Seasons, "seasonID", "seasonName", accessory.SeasonID);
             return View(accessory);
         }
 
@@ -78,7 +85,7 @@ namespace Wardrobe.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "accessoryID,accessoryName,accessoryPhoto,accessoryColor,accessorySeason,accessoryOccasion")] Accessory accessory)
+        public ActionResult Edit([Bind(Include = "AccessoryID,AccessoryName,AccessoryPhoto,AccessoryColor,SeasonID,OccasionID")] Accessory accessory)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +93,8 @@ namespace Wardrobe.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.OccasionID = new SelectList(db.Occasions, "OccasionID", "OccasionName", accessory.OccasionID);
+            ViewBag.SeasonID = new SelectList(db.Seasons, "seasonID", "seasonName", accessory.SeasonID);
             return View(accessory);
         }
 

@@ -14,23 +14,21 @@ namespace Wardrobe.Models
         // automatically whenever you change your model schema, please use data migrations.
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
-    
+
         public WardrobeContext() : base("name=WardrobeContext")
         {
         }
-
-        public System.Data.Entity.DbSet<Wardrobe.Models.Outfit> Outfits { get; set; }
-
-        public System.Data.Entity.DbSet<Wardrobe.Models.Accessory> Accessories { get; set; }
-
-        public System.Data.Entity.DbSet<Wardrobe.Models.Shoe> Shoes { get; set; }
+            public System.Data.Entity.DbSet<Wardrobe.Models.Outfit> Outfits { get; set; }
+            public System.Data.Entity.DbSet<Wardrobe.Models.Accessory> Accessories { get; set; }
 
         public System.Data.Entity.DbSet<Wardrobe.Models.Bottom> Bottoms { get; set; }
 
         public System.Data.Entity.DbSet<Wardrobe.Models.Top> Tops { get; set; }
-
         public System.Data.Entity.DbSet<Wardrobe.Models.Season> Seasons { get; set; }
-
         public System.Data.Entity.DbSet<Wardrobe.Models.Occasion> Occasions { get; set; }
+
+        public System.Data.Entity.DbSet<Wardrobe.Models.Shoe> Shoes { get; set; }
+
+        
     }
 }

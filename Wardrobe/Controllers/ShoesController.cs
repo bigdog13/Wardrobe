@@ -17,7 +17,8 @@ namespace Wardrobe.Controllers
         // GET: Shoes
         public ActionResult Index()
         {
-            return View(db.Shoes.ToList());
+            var shoes = db.Shoes.Include(s => s.Occasion).Include(s => s.Season);
+            return View(shoes.ToList());
         }
 
         // GET: Shoes/Details/5
@@ -38,6 +39,8 @@ namespace Wardrobe.Controllers
         // GET: Shoes/Create
         public ActionResult Create()
         {
+            ViewBag.OccasionID = new SelectList(db.Occasions, "OccasionID", "OccasionName");
+            ViewBag.SeasonID = new SelectList(db.Seasons, "seasonID", "seasonName");
             return View();
         }
 
@@ -46,7 +49,7 @@ namespace Wardrobe.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "shoeID,shoeName,shoePhoto,shoeColor,shoeSeason,shoeOccasion")] Shoe shoe)
+        public ActionResult Create([Bind(Include = "ShoeID,ShoeName,ShoePhoto,ShoeColor,SeasonID,OccasionID")] Shoe shoe)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +58,8 @@ namespace Wardrobe.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.OccasionID = new SelectList(db.Occasions, "OccasionID", "OccasionName", shoe.OccasionID);
+            ViewBag.SeasonID = new SelectList(db.Seasons, "seasonID", "seasonName", shoe.SeasonID);
             return View(shoe);
         }
 
@@ -70,6 +75,8 @@ namespace Wardrobe.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.OccasionID = new SelectList(db.Occasions, "OccasionID", "OccasionName", shoe.OccasionID);
+            ViewBag.SeasonID = new SelectList(db.Seasons, "seasonID", "seasonName", shoe.SeasonID);
             return View(shoe);
         }
 
@@ -78,7 +85,7 @@ namespace Wardrobe.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "shoeID,shoeName,shoePhoto,shoeColor,shoeSeason,shoeOccasion")] Shoe shoe)
+        public ActionResult Edit([Bind(Include = "ShoeID,ShoeName,ShoePhoto,ShoeColor,SeasonID,OccasionID")] Shoe shoe)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +93,8 @@ namespace Wardrobe.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.OccasionID = new SelectList(db.Occasions, "OccasionID", "OccasionName", shoe.OccasionID);
+            ViewBag.SeasonID = new SelectList(db.Seasons, "seasonID", "seasonName", shoe.SeasonID);
             return View(shoe);
         }
 

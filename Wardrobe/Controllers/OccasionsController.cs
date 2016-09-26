@@ -46,7 +46,7 @@ namespace Wardrobe.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "occasionID,occasionName")] Occasion occasion)
+        public ActionResult Create([Bind(Include = "OccasionID,OccasionName")] Occasion occasion)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace Wardrobe.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "occasionID,occasionName")] Occasion occasion)
+        public ActionResult Edit([Bind(Include = "OccasionID,OccasionName")] Occasion occasion)
         {
             if (ModelState.IsValid)
             {

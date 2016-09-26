@@ -11,48 +11,48 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.accessoryName)
+            @Html.DisplayNameFor(model => model.Occasion.OccasionName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.accessoryName)
+            @Html.DisplayFor(model => model.Occasion.OccasionName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.accessoryPhoto)
+            @Html.DisplayNameFor(model => model.Season.seasonName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.accessoryPhoto)
+            @Html.DisplayFor(model => model.Season.seasonName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.accessoryColor)
+            @Html.DisplayNameFor(model => model.AccessoryName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.accessoryColor)
+            @Html.DisplayFor(model => model.AccessoryName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.accessorySeason)
+            @Html.DisplayNameFor(model => model.AccessoryPhoto)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.accessorySeason)
+            @Html.DisplayFor(model => model.AccessoryPhoto)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.accessoryOccasion)
+            @Html.DisplayNameFor(model => model.AccessoryColor)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.accessoryOccasion)
+            @Html.DisplayFor(model => model.AccessoryColor)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.accessoryID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AccessoryID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

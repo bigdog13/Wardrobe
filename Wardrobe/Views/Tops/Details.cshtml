@@ -11,48 +11,48 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.topName)
+            @Html.DisplayNameFor(model => model.Occasion.OccasionName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.topName)
+            @Html.DisplayFor(model => model.Occasion.OccasionName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.topPhoto)
+            @Html.DisplayNameFor(model => model.Season.seasonName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.topPhoto)
+            @Html.DisplayFor(model => model.Season.seasonName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.topColor)
+            @Html.DisplayNameFor(model => model.TopName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.topColor)
+            @Html.DisplayFor(model => model.TopName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.topSeason)
+            @Html.DisplayNameFor(model => model.TopPhoto)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.topSeason)
+            @Html.DisplayFor(model => model.TopPhoto)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.topOccasion)
+            @Html.DisplayNameFor(model => model.TopColor)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.topOccasion)
+            @Html.DisplayFor(model => model.TopColor)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.topID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TopID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

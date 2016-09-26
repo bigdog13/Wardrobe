@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -9,12 +10,16 @@ namespace Wardrobe.Models
     public class Outfit
     {
         [Key]
-        public int outfitID { get; set; }
+        public int OutfitID { get; set; }
 
-        public string topOutfit { get; set; }
-        public string bottomOutfit { get; set; }
-        public string shoesOutfit { get; set; }
-        public string accessoriesOutfit { get; set; }
+        [ForeignKey("Top")]
+        public int TopOutfitID { get; set; }
+        [ForeignKey("Bottom")]
+        public int BottomOutfitID { get; set; }
+        [ForeignKey("Shoe")]
+        public int ShoeOutfitID { get; set; }
+        [ForeignKey("Accessories")]
+        public int AccessoryOutfitID { get; set; }
 
         //naviagation property Many//
 

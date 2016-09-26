@@ -17,11 +17,12 @@ namespace Wardrobe.Controllers
         // GET: Tops
         public ActionResult Index()
         {
-            return View(db.Tops.ToList());
+            var tops = db.Tops.Include(t => t.Occasion).Include(t => t.Season);
+            return View(tops.ToList());
         }
 
         // GET: Tops/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -38,6 +39,8 @@ namespace Wardrobe.Controllers
         // GET: Tops/Create
         public ActionResult Create()
         {
+            ViewBag.OccasionID = new SelectList(db.Occasions, "OccasionID", "OccasionName");
+            ViewBag.SeasonID = new SelectList(db.Seasons, "seasonID", "seasonName");
             return View();
         }
 
@@ -46,7 +49,7 @@ namespace Wardrobe.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "topID,topName,topPhoto,topColor,topSeason,topOccasion")] Top top)
+        public ActionResult Create([Bind(Include = "TopID,TopName,TopPhoto,TopColor,SeasonID,OccasionID")] Top top)
         {
             if (ModelState.IsValid)
             {
@@ -55,11 +58,13 @@ namespace Wardrobe.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.OccasionID = new SelectList(db.Occasions, "OccasionID", "OccasionName", top.OccasionID);
+            ViewBag.SeasonID = new SelectList(db.Seasons, "seasonID", "seasonName", top.SeasonID);
             return View(top);
         }
 
         // GET: Tops/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -70,6 +75,8 @@ namespace Wardrobe.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.OccasionID = new SelectList(db.Occasions, "OccasionID", "OccasionName", top.OccasionID);
+            ViewBag.SeasonID = new SelectList(db.Seasons, "seasonID", "seasonName", top.SeasonID);
             return View(top);
         }
 
@@ -78,7 +85,7 @@ namespace Wardrobe.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "topID,topName,topPhoto,topColor,topSeason,topOccasion")] Top top)
+        public ActionResult Edit([Bind(Include = "TopID,TopName,TopPhoto,TopColor,SeasonID,OccasionID")] Top top)
         {
             if (ModelState.IsValid)
             {
@@ -86,11 +93,13 @@ namespace Wardrobe.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.OccasionID = new SelectList(db.Occasions, "OccasionID", "OccasionName", top.OccasionID);
+            ViewBag.SeasonID = new SelectList(db.Seasons, "seasonID", "seasonName", top.SeasonID);
             return View(top);
         }
 
         // GET: Tops/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -107,7 +116,7 @@ namespace Wardrobe.Controllers
         // POST: Tops/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             Top top = db.Tops.Find(id);
             db.Tops.Remove(top);
