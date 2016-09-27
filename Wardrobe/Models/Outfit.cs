@@ -11,6 +11,7 @@ namespace Wardrobe.Models
     {
         [Key]
         public int OutfitID { get; set; }
+        public string OutfitName { get; set; }
 
         [ForeignKey("Top")]
         public int TopOutfitID { get; set; }

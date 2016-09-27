@@ -159,17 +159,30 @@
     <Compile Include="Controllers\AccessoriesController.cs" />
     <Compile Include="Controllers\BottomsController.cs" />
     <Compile Include="Controllers\OccasionsController.cs" />
-    <Compile Include="Controllers\OutfitsController.cs" />
     <Compile Include="Controllers\SeasonsController.cs" />
     <Compile Include="Controllers\ShoesController.cs" />
     <Compile Include="Controllers\TopsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609262314225_InitialCreate.cs" />
+    <Compile Include="Migrations\201609262314225_InitialCreate.Designer.cs">
+      <DependentUpon>201609262314225_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609272324097_ChangedContext.cs" />
+    <Compile Include="Migrations\201609272324097_ChangedContext.Designer.cs">
+      <DependentUpon>201609272324097_ChangedContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609272329314_AddedOutfitName.cs" />
+    <Compile Include="Migrations\201609272329314_AddedOutfitName.Designer.cs">
+      <DependentUpon>201609272329314_AddedOutfitName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accessory.cs" />
     <Compile Include="Models\Bottom.cs" />
     <Compile Include="Models\Occasion.cs" />
     <Compile Include="Models\Outfit.cs" />
+    <Compile Include="Controllers\OutfitsController.cs" />
     <Compile Include="Models\Season.cs" />
     <Compile Include="Models\Shoe.cs" />
     <Compile Include="Models\Top.cs" />
@@ -262,6 +275,17 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201609262314225_InitialCreate.resx">
+      <DependentUpon>201609262314225_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609272324097_ChangedContext.resx">
+      <DependentUpon>201609272324097_ChangedContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609272329314_AddedOutfitName.resx">
+      <DependentUpon>201609272329314_AddedOutfitName.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

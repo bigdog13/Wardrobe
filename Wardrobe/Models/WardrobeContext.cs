@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 
@@ -18,7 +19,12 @@ namespace Wardrobe.Models
         public WardrobeContext() : base("name=WardrobeContext")
         {
         }
-            public System.Data.Entity.DbSet<Wardrobe.Models.Outfit> Outfits { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+
+        }
+        public System.Data.Entity.DbSet<Wardrobe.Models.Outfit> Outfits { get; set; }
             public System.Data.Entity.DbSet<Wardrobe.Models.Accessory> Accessories { get; set; }
 
         public System.Data.Entity.DbSet<Wardrobe.Models.Bottom> Bottoms { get; set; }

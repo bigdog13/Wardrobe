@@ -6,9 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Wardrobe.Models;
 
-namespace Wardrobe.Controllers
+namespace Wardrobe.Models
 {
     public class OutfitsController : Controller
     {
@@ -50,7 +49,7 @@ namespace Wardrobe.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OutfitID,TopOutfitID,BottomOutfitID,ShoeOutfitID,AccessoryOutfitID")] Outfit outfit)
+        public ActionResult Create([Bind(Include = "OutfitID,OutfitName,TopOutfitID,BottomOutfitID,ShoeOutfitID,AccessoryOutfitID")] Outfit outfit)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +87,7 @@ namespace Wardrobe.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OutfitID,TopOutfitID,BottomOutfitID,ShoeOutfitID,AccessoryOutfitID")] Outfit outfit)
+        public ActionResult Edit([Bind(Include = "OutfitID,OutfitName,TopOutfitID,BottomOutfitID,ShoeOutfitID,AccessoryOutfitID")] Outfit outfit)
         {
             if (ModelState.IsValid)
             {
