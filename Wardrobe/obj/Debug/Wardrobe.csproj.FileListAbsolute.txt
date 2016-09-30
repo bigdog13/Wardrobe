@@ -116,3 +116,7 @@ C:\Users\WeCanCodeIT\Wardrobe\Wardrobe\obj\Debug\Wardrobe.Migrations.InitialCrea
 C:\Users\WeCanCodeIT\Wardrobe\Wardrobe\obj\Debug\Wardrobe.csproj.GenerateResource.Cache
 C:\Users\WeCanCodeIT\Wardrobe\Wardrobe\obj\Debug\Wardrobe.Migrations.ChangedContext.resources
 C:\Users\WeCanCodeIT\Wardrobe\Wardrobe\obj\Debug\Wardrobe.Migrations.AddedOutfitName.resources
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\Wardrobe\Wardrobe\obj\Debug\Wardrobe.Migrations.InitialCreate.resources
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\Wardrobe\Wardrobe\obj\Debug\Wardrobe.Migrations.ChangedContext.resources
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\Wardrobe\Wardrobe\obj\Debug\Wardrobe.Migrations.AddedOutfitName.resources
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\Wardrobe\Wardrobe\obj\Debug\Wardrobe.csproj.GenerateResource.Cache

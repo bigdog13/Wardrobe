@@ -9,6 +9,11 @@ namespace Wardrobe.Models
 {
     public class Outfit
     {
+
+        public Outfit()
+        {
+            Accessories = new HashSet<Accessory>();
+        }
         [Key]
         public int OutfitID { get; set; }
         public string OutfitName { get; set; }

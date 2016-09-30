@@ -188,10 +188,28 @@
     <Compile Include="Models\Top.cs" />
     <Compile Include="Models\WardrobeContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewcController\OutfitViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Accessories\Blue Sunglasses.jpg" />
+    <Content Include="Content\Images\Accessories\Brown Belt.jpg" />
+    <Content Include="Content\Images\Accessories\Brown Sunglasses.jpg" />
+    <Content Include="Content\Images\Accessories\Brown Wallet.jpg" />
+    <Content Include="Content\Images\Accessories\Brown Watch.jpg" />
+    <Content Include="Content\Images\Bottoms\black denim cutoff short.jpg" />
+    <Content Include="Content\Images\Bottoms\Blue Jeans.jpg" />
+    <Content Include="Content\Images\Bottoms\Gray Pants.jpg" />
+    <Content Include="Content\Images\Bottoms\Kahki Pants.jpg" />
+    <Content Include="Content\Images\Shoes\Black Sandals.jpg" />
+    <Content Include="Content\Images\Shoes\Blue Sneakers.jpg" />
+    <Content Include="Content\Images\Shoes\Brown Boots.jpg" />
+    <Content Include="Content\Images\Tops\Blue T-Shirt.jpg" />
+    <Content Include="Content\Images\Tops\Brown Vest.jpg" />
+    <Content Include="Content\Images\Tops\Light Blue Polo.jpg" />
+    <Content Include="Content\Images\Tops\Red Long T-Shirt.jpg" />
+    <Content Include="Content\Images\Tops\White Dress Shirt.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

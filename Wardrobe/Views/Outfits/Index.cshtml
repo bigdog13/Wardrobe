@@ -24,7 +24,7 @@
             @Html.DisplayNameFor(model => model.Shoe.ShoeName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AccessoryOutfitID)
+            Accessories
         </th>
         <th></th>
     </tr>
@@ -32,19 +32,23 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.OutfitName)
+        </td>
+        <td>
+           @Html.DisplayFor(modelItem => item.Top.TopName)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Bottom.BottomName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Shoe.ShoeName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Top.TopName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OutfitName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AccessoryOutfitID)
+            @foreach (var accessory in item.Accessories)
+            {
+                <div>@Html.DisplayFor(modelItem => accessory.AccessoryName)</div>
+            }
+            
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.OutfitID }) |

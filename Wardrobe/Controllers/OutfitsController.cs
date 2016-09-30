@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Wardrobe.ViewController;
 
 namespace Wardrobe.Models
 {
@@ -38,31 +39,85 @@ namespace Wardrobe.Models
         // GET: Outfits/Create
         public ActionResult Create()
         {
-            ViewBag.BottomOutfitID = new SelectList(db.Bottoms, "BottomID", "BottomName");
-            ViewBag.ShoeOutfitID = new SelectList(db.Shoes, "ShoeID", "ShoeName");
-            ViewBag.TopOutfitID = new SelectList(db.Tops, "TopID", "TopName");
-            return View();
+
+            Outfit outfit = new Outfit();
+            if (outfit == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.BottomId = new SelectList(db.Bottoms, "BottomId", "BottomName", outfit.BottomOutfitID);
+            ViewBag.ShoeId = new SelectList(db.Shoes, "ShoeId", "ShoeName", outfit.ShoeOutfitID);
+            ViewBag.TopId = new SelectList(db.Tops, "TopId", "TopName", outfit.TopOutfitID);
+
+            OutfitViewModel outfitViewModel = new OutfitViewModel
+            {
+                Outfit = outfit,
+                // Look up all accessories, then converts them into
+                // SelectListItem objects
+                AllAccessories = (from a in db.Accessories
+                                  select new SelectListItem
+                                  {
+                                      Value = a.AccessoryID.ToString(),
+                                      Text = a.AccessoryName
+                                  })
+            };
+
+            return View(outfitViewModel);
         }
+        //{
+        //    ViewBag.BottomOutfitID = new SelectList(db.Bottoms, "BottomID", "BottomName");
+        //    ViewBag.ShoeOutfitID = new SelectList(db.Shoes, "ShoeID", "ShoeName");
+        //    ViewBag.TopOutfitID = new SelectList(db.Tops, "TopID", "TopName");
+
+        //    return View();
+        //}
 
         // POST: Outfits/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OutfitID,OutfitName,TopOutfitID,BottomOutfitID,ShoeOutfitID,AccessoryOutfitID")] Outfit outfit)
+        public ActionResult Create([Bind(Include = "OutfitID,OutfitName,TopOutfitID,BottomOutfitID,ShoeOutfitID,")] Outfit outfit, List<int> SelectedAccessories)
         {
             if (ModelState.IsValid)
             {
-                db.Outfits.Add(outfit);
+                var newOutfit = outfit;
+
+                newOutfit.TopOutfitID = outfit.TopOutfitID;
+                newOutfit.OutfitName = outfit.OutfitName;
+                newOutfit.BottomOutfitID = outfit.BottomOutfitID;
+                newOutfit.ShoeOutfitID = outfit.ShoeOutfitID;
+
+                
+
+                foreach (int i in SelectedAccessories)
+                {
+                    newOutfit.Accessories.Add(db.Accessories.Find(i));
+                }
+                db.Outfits.Add(newOutfit);
+                //db.Entry(outfit).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             ViewBag.BottomOutfitID = new SelectList(db.Bottoms, "BottomID", "BottomName", outfit.BottomOutfitID);
             ViewBag.ShoeOutfitID = new SelectList(db.Shoes, "ShoeID", "ShoeName", outfit.ShoeOutfitID);
             ViewBag.TopOutfitID = new SelectList(db.Tops, "TopID", "TopName", outfit.TopOutfitID);
             return View(outfit);
         }
+
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Outfits.Add(outfit);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    ViewBag.BottomOutfitID = new SelectList(db.Bottoms, "BottomID", "BottomName", outfit.BottomOutfitID);
+        //    ViewBag.ShoeOutfitID = new SelectList(db.Shoes, "ShoeID", "ShoeName", outfit.ShoeOutfitID);
+        //    ViewBag.TopOutfitID = new SelectList(db.Tops, "TopID", "TopName", outfit.TopOutfitID);
+        //    return View(outfit);
+        //}
 
         // GET: Outfits/Edit/5
         public ActionResult Edit(int? id)
@@ -76,10 +131,24 @@ namespace Wardrobe.Models
             {
                 return HttpNotFound();
             }
-            ViewBag.BottomOutfitID = new SelectList(db.Bottoms, "BottomID", "BottomName", outfit.BottomOutfitID);
-            ViewBag.ShoeOutfitID = new SelectList(db.Shoes, "ShoeID", "ShoeName", outfit.ShoeOutfitID);
-            ViewBag.TopOutfitID = new SelectList(db.Tops, "TopID", "TopName", outfit.TopOutfitID);
-            return View(outfit);
+            ViewBag.BottomId = new SelectList(db.Bottoms, "BottomId", "BottomName", outfit.BottomOutfitID);
+            ViewBag.ShoeId = new SelectList(db.Shoes, "ShoeId", "ShoeName", outfit.ShoeOutfitID);
+            ViewBag.TopId = new SelectList(db.Tops, "TopId", "TopName", outfit.TopOutfitID);
+
+            OutfitViewModel outfitViewModel = new OutfitViewModel
+            {
+                Outfit = outfit,
+                // Look up all accessories, then converts them into
+                // SelectListItem objects
+                AllAccessories = (from a in db.Accessories
+                                  select new SelectListItem
+                                  {
+                                      Value = a.AccessoryID.ToString(),
+                                      Text = a.AccessoryName
+                                  })
+            };
+
+            return View(outfitViewModel);
         }
 
         // POST: Outfits/Edit/5
@@ -87,11 +156,25 @@ namespace Wardrobe.Models
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OutfitID,OutfitName,TopOutfitID,BottomOutfitID,ShoeOutfitID,AccessoryOutfitID")] Outfit outfit)
+        public ActionResult Edit([Bind(Include = "OutfitID,OutfitName,TopOutfitID,BottomOutfitID,ShoeOutfitID")] Outfit outfit, List<int> SelectedAccessories)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(outfit).State = EntityState.Modified;
+                var existingOutfit = db.Outfits.Find(outfit.OutfitID);
+
+                existingOutfit.TopOutfitID = outfit.TopOutfitID;
+                existingOutfit.OutfitName = outfit.OutfitName;
+                existingOutfit.BottomOutfitID = outfit.BottomOutfitID;
+                existingOutfit.ShoeOutfitID = outfit.ShoeOutfitID;
+
+                existingOutfit.Accessories.Clear();
+
+                foreach (int i in SelectedAccessories)
+                {
+                    existingOutfit.Accessories.Add(db.Accessories.Find(i));
+                }
+
+                //db.Entry(outfit).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
