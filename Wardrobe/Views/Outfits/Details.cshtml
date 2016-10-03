@@ -6,7 +6,7 @@
 
 <h2>Details</h2>
 
-<div>
+<div class="container">
     <h4>Outfit</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -26,6 +26,7 @@
 
         <dd>
             @Html.DisplayFor(model => model.Top.TopName)
+            <img class="WardrobeImages" src="@Url.Content(Model.Top.TopPhoto)" />
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Bottom.BottomName)
@@ -33,14 +34,17 @@
 
         <dd>
             @Html.DisplayFor(model => model.Bottom.BottomName)
+            <img class="WardrobeImages" src= "@Url.Content(Model.Bottom.BottomPhoto)"/>
         </dd>
        
         <dt>
             @Html.DisplayNameFor(model => model.Shoe.ShoeName)
+            
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Shoe.ShoeName)
+            <img class="WardrobeImages" src="@Url.Content(Model.Shoe.ShoePhoto)" />
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.AccessoryOutfitID)
@@ -48,6 +52,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.AccessoryOutfitID)
+            @foreach (var i in Model.Accessories)
+            {
+                <img class="WardrobeImages" src="@Url.Content(i.AccessoryPhoto)" />
+            }
+
+
+
+
         </dd>
 
     </dl>
