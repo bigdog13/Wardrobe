@@ -27,6 +27,11 @@ namespace Wardrobe.Models
         [ForeignKey("Accessories")]
         public int AccessoryOutfitID { get; set; }
 
+        [ForeignKey("Season")]
+        public int SeasonOutfitID { get; set; }
+        [ForeignKey("Occasion")]
+        public int OccasionOutfitID { get; set; }
+
         //naviagation property Many//
 
         public virtual ICollection<Accessory> Accessories { get; set; }
@@ -35,6 +40,10 @@ namespace Wardrobe.Models
         public virtual Bottom Bottom { get; set; }
         public virtual Top Top { get; set; }
         public virtual Shoe Shoe { get; set; }
+
+        public virtual Season Season { get; set; }
+        public virtual Occasion Occasion { get; set; }
+
     }
                    
     

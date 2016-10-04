@@ -4,65 +4,76 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>@Html.DisplayFor(model => model.OutfitName)</h2>
+<h3>@Html.DisplayFor(model => model.Occasion.OccasionName)</h3>
+<h3>@Html.DisplayFor(model => model.Season.seasonName)</h3>
 
 <div class="container">
-    <h4>Outfit</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        
-        <dt>
-            @Html.DisplayNameFor(model => model.OutfitName)
-        </dt>
+    
+    
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="thumbnail">
+                <img class="WardrobeImages" src="@Url.Content(Model.Top.TopPhoto)" />
+                <div class="caption">
+                    <h3>@Html.DisplayFor(model => model.Top.TopName)</h3>
+                   
+                    </div>
+            </div>
+        </div>
+    </div>
+    
+    
 
-        <dd>
-            @Html.DisplayFor(model => model.OutfitName)
-        </dd>
-      
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="thumbnail">
+                <img class="WardrobeImages" src="@Url.Content(Model.Bottom.BottomPhoto)" />
+                <div class="caption">
+                    <h3>@Html.DisplayFor(model => model.Bottom.BottomName)</h3>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Top.TopName)
-        </dt>
+                </div>
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Top.TopName)
-            <img class="WardrobeImages" src="@Url.Content(Model.Top.TopPhoto)" />
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Bottom.BottomName)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Bottom.BottomName)
-            <img class="WardrobeImages" src= "@Url.Content(Model.Bottom.BottomPhoto)"/>
-        </dd>
-       
-        <dt>
-            @Html.DisplayNameFor(model => model.Shoe.ShoeName)
-            
-        </dt>
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="thumbnail">
+                    <img class="WardrobeImages" src="@Url.Content(Model.Shoe.ShoePhoto)" />
+                    <div class="caption">
+                        <h3>@Html.DisplayFor(model => model.Shoe.ShoeName)</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Shoe.ShoeName)
-            <img class="WardrobeImages" src="@Url.Content(Model.Shoe.ShoePhoto)" />
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.AccessoryOutfitID)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AccessoryOutfitID)
+
+        <div>
+
             @foreach (var i in Model.Accessories)
             {
-                <img class="WardrobeImages" src="@Url.Content(i.AccessoryPhoto)" />
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="thumbnail">
+                            <img class="WardrobeImages" src="@Url.Content(i.AccessoryPhoto)" />
+                            <div class="caption">
+                                <h3>@Html.DisplayFor(model => i.AccessoryName)</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             }
 
 
 
 
-        </dd>
 
-    </dl>
+        </div>
+    </div>
+
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.OutfitID }) |

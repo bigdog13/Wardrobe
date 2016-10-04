@@ -18,5 +18,8 @@ namespace Wardrobe.Models
         public virtual ICollection<Shoe> Shoes { get; set; }
         public virtual ICollection<Top> Tops { get; set; }
         public virtual ICollection<Bottom> Bottoms { get; set; }
+
+
+        public virtual ICollection<Outfit> Outfits { get; set; }
     }
 }

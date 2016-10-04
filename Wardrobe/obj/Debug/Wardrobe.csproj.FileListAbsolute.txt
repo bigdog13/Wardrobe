@@ -120,3 +120,4 @@ C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\Wardrobe\Wardrobe\obj
 C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\Wardrobe\Wardrobe\obj\Debug\Wardrobe.Migrations.ChangedContext.resources
 C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\Wardrobe\Wardrobe\obj\Debug\Wardrobe.Migrations.AddedOutfitName.resources
 C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\Wardrobe\Wardrobe\obj\Debug\Wardrobe.csproj.GenerateResource.Cache
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\Wardrobe\Wardrobe\obj\Debug\Wardrobe.Migrations.AddSeasonOccasion.resources

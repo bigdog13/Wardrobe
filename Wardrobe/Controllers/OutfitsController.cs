@@ -48,6 +48,8 @@ namespace Wardrobe.Models
             ViewBag.BottomId = new SelectList(db.Bottoms, "BottomId", "BottomName", outfit.BottomOutfitID);
             ViewBag.ShoeId = new SelectList(db.Shoes, "ShoeId", "ShoeName", outfit.ShoeOutfitID);
             ViewBag.TopId = new SelectList(db.Tops, "TopId", "TopName", outfit.TopOutfitID);
+            ViewBag.SeasonOutfitID = new SelectList(db.Seasons, "SeasonID", "SeasonName", outfit.SeasonOutfitID);
+            ViewBag.OccasionOutfitID = new SelectList(db.Occasions, "OccasionID", "OccasionName", outfit.OccasionOutfitID);
 
             OutfitViewModel outfitViewModel = new OutfitViewModel
             {
@@ -77,7 +79,7 @@ namespace Wardrobe.Models
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OutfitID,OutfitName,TopOutfitID,BottomOutfitID,ShoeOutfitID,")] Outfit outfit, List<int> SelectedAccessories)
+        public ActionResult Create([Bind(Include = "OutfitID,OutfitName,TopOutfitID,BottomOutfitID,ShoeOutfitID,SeasonOutfitID,OccasionOutfitId")] Outfit outfit, List<int> SelectedAccessories)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +89,9 @@ namespace Wardrobe.Models
                 newOutfit.OutfitName = outfit.OutfitName;
                 newOutfit.BottomOutfitID = outfit.BottomOutfitID;
                 newOutfit.ShoeOutfitID = outfit.ShoeOutfitID;
-
+                newOutfit.SeasonOutfitID = outfit.SeasonOutfitID;
+                newOutfit.OccasionOutfitID = outfit.OccasionOutfitID;
+                
                 
 
                 foreach (int i in SelectedAccessories)
@@ -102,6 +106,8 @@ namespace Wardrobe.Models
             ViewBag.BottomOutfitID = new SelectList(db.Bottoms, "BottomID", "BottomName", outfit.BottomOutfitID);
             ViewBag.ShoeOutfitID = new SelectList(db.Shoes, "ShoeID", "ShoeName", outfit.ShoeOutfitID);
             ViewBag.TopOutfitID = new SelectList(db.Tops, "TopID", "TopName", outfit.TopOutfitID);
+            ViewBag.SeasonOutfitID = new SelectList(db.Seasons, "SeasonID", "SeasonName", outfit.SeasonOutfitID);
+            ViewBag.OccasionOutfitID = new SelectList(db.Occasions, "OccasionID", "OccasionName", outfit.OccasionOutfitID);
             return View(outfit);
         }
 
@@ -134,6 +140,8 @@ namespace Wardrobe.Models
             ViewBag.BottomId = new SelectList(db.Bottoms, "BottomId", "BottomName", outfit.BottomOutfitID);
             ViewBag.ShoeId = new SelectList(db.Shoes, "ShoeId", "ShoeName", outfit.ShoeOutfitID);
             ViewBag.TopId = new SelectList(db.Tops, "TopId", "TopName", outfit.TopOutfitID);
+            ViewBag.SeasonId = new SelectList(db.Seasons, "SeasonId", "SeasonName", outfit.SeasonOutfitID);
+            ViewBag.OccasionId = new SelectList(db.Occasions, "OccasionId", "OccasionName", outfit.OccasionOutfitID);
 
             OutfitViewModel outfitViewModel = new OutfitViewModel
             {
@@ -156,7 +164,7 @@ namespace Wardrobe.Models
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OutfitID,OutfitName,TopOutfitID,BottomOutfitID,ShoeOutfitID")] Outfit outfit, List<int> SelectedAccessories)
+        public ActionResult Edit([Bind(Include = "OutfitID,OutfitName,TopOutfitID,BottomOutfitID,ShoeOutfitID,SeasonOutfitID,OccasionOutfitId")] Outfit outfit, List<int> SelectedAccessories)
         {
             if (ModelState.IsValid)
             {
@@ -166,6 +174,8 @@ namespace Wardrobe.Models
                 existingOutfit.OutfitName = outfit.OutfitName;
                 existingOutfit.BottomOutfitID = outfit.BottomOutfitID;
                 existingOutfit.ShoeOutfitID = outfit.ShoeOutfitID;
+                existingOutfit.SeasonOutfitID = outfit.SeasonOutfitID;
+                existingOutfit.OccasionOutfitID = outfit.OccasionOutfitID;
 
                 existingOutfit.Accessories.Clear();
 
@@ -181,6 +191,8 @@ namespace Wardrobe.Models
             ViewBag.BottomOutfitID = new SelectList(db.Bottoms, "BottomID", "BottomName", outfit.BottomOutfitID);
             ViewBag.ShoeOutfitID = new SelectList(db.Shoes, "ShoeID", "ShoeName", outfit.ShoeOutfitID);
             ViewBag.TopOutfitID = new SelectList(db.Tops, "TopID", "TopName", outfit.TopOutfitID);
+            ViewBag.SeasonId = new SelectList(db.Seasons, "SeasonId", "SeasonName", outfit.SeasonOutfitID);
+            ViewBag.OccasionId = new SelectList(db.Occasions, "OccasionId", "OccasionName", outfit.OccasionOutfitID);
             return View(outfit);
         }
 

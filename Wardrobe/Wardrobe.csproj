@@ -177,6 +177,10 @@
     <Compile Include="Migrations\201609272329314_AddedOutfitName.Designer.cs">
       <DependentUpon>201609272329314_AddedOutfitName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610032356288_AddSeasonOccasion.cs" />
+    <Compile Include="Migrations\201610032356288_AddSeasonOccasion.Designer.cs">
+      <DependentUpon>201610032356288_AddSeasonOccasion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accessory.cs" />
     <Compile Include="Models\Bottom.cs" />
@@ -303,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609272329314_AddedOutfitName.resx">
       <DependentUpon>201609272329314_AddedOutfitName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610032356288_AddSeasonOccasion.resx">
+      <DependentUpon>201610032356288_AddSeasonOccasion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
